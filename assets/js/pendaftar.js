@@ -72,7 +72,6 @@ function exportToExcel() {
     'Nama Lengkap': pendaftar['nama-lengkap'],
     'Email': pendaftar.email,
     'No Telepon': pendaftar['no-telp'],
-    'Bukti Follow': `https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${pendaftar['bukti-follow']}`
   }));
 
   const worksheet = XLSX.utils.json_to_sheet(excelData);
