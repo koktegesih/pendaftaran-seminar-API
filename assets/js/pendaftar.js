@@ -42,7 +42,7 @@ function renderTableData(data) {
       <td>${pendaftar.email}</td>
       <td>${pendaftar["no-telp"]}</td>
       <td>
-        <i class="fas fa-eye text-primary" 
+        <i class="fas fa-image text-primary" 
            style="cursor: pointer;" 
            data-image-url="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${pendaftar["bukti-follow"]}"
            onclick="showImageModal(this.getAttribute('data-image-url'))"
