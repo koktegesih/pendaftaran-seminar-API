@@ -22,6 +22,13 @@
 
   <!-- CSS Files -->
   <link href="./assets/css/argon-design-system.css?v=1.2.2" rel="stylesheet" />
+
+  <!-- SheetJS for Excel Export -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+  <!-- JSZip for ZIP file creation -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <!-- FileSaver.js for downloading files -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 
 <body class="index-page">
@@ -130,11 +137,19 @@
                       <p class="txt-biru mb-0">
                         Jumlah Pendaftar <b><a id="jumlah"></a> Orang</b>
                       </p>
-                      <a href="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/database/pendaftar.db"
-                         class="btn btn-sm btn-primary me-3"
-                         download="backup-pendaftaran.db">
-                        <i class="ni ni-cloud-download-95 me-2"></i> Download Backup Database
-                      </a>
+                      <div>
+                        <a href="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/database/pendaftar.db"
+                           class="btn btn-sm btn-primary me-3"
+                           download="backup-pendaftaran.db">
+                          <i class="ni ni-cloud-download-95 me-2"></i> Download Backup Database
+                        </a>
+                        <button class="btn btn-sm btn-success me-3" onclick="exportToExcel()">
+                          <i class="ni ni-archive-2 me-2"></i> Export to Excel
+                        </button>
+                        <button class="btn btn-sm btn-info me-3" onclick="downloadImagesAsZip()">
+                          <i class="ni ni-folder-17 me-2"></i> Download Images as ZIP
+                        </button>
+                      </div>
                     </div>
                     <table border="1"
                            style="width: 100%; table-layout: fixed; text-align: center;"
@@ -212,7 +227,7 @@
         <div class="modal-header">
           <h5 class="modal-title" id="imageModalLabel">Bukti Follow Instagram</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">×</span>
           </button>
         </div>
         <div class="modal-body text-center">
@@ -258,7 +273,7 @@
       <div class="row align-items-center justify-content-md-between">
         <div class="col-md-6">
           <div class="copyright">
-            &copy; 2024 <a href="https://coconut.or.id">COCONUT Computer Club</a>.
+            © 2024 <a href="https://coconut.or.id">COCONUT Computer Club</a>.
           </div>
         </div>
         <div class="col-md-6">
