@@ -23,6 +23,45 @@
   <!-- CSS Files -->
   <link href="./assets/css/argon-design-system.css?v=1.2.2" rel="stylesheet" />
 
+  <!-- Internal CSS for Animations -->
+  <style>
+    @keyframes heroFadeSlide {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-hero-title {
+      animation: heroFadeSlide 1s ease-out;
+    }
+    .animate-hero-button {
+      animation: heroFadeSlide 1s ease-out 0.2s backwards;
+    }
+    .animate-hero-tabs {
+      animation: heroFadeSlide 1s ease-out 0.4s backwards;
+    }
+    .animate-hero-content {
+      animation: heroFadeSlide 1s ease-out 0.6s backwards;
+    }
+    @keyframes cardFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+    .animate-card {
+      animation: cardFadeIn 0.6s ease-out 0.8s backwards;
+    }
+  </style>
+
   <!-- SheetJS for Excel Export -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
   <!-- JSZip for ZIP file creation -->
@@ -80,13 +119,13 @@
           <!-- Header & Info -->
           <div class="mb-3">
             <button type="button"
-                    class="btn btn-sm btn-success btn-tooltip"
+                    class="btn btn-sm btn-success btn-tooltip animate-hero-button"
                     data-toggle="tooltip"
                     data-placement="top"
                     title="Pendaftaran Berakhir pada Sabtu, 3 February 2024">
               COCONUT OPEN CLASS BATCH 7
             </button>
-            <h3 class="text-white">
+            <h3 class="text-white animate-hero-title">
               <span class="display-4">
                 From Nothing to Coder: Bangun Website Portfolio Professional Dengan Next.js
               </span>
@@ -94,7 +133,7 @@
           </div>
 
           <!-- Tab Navigation -->
-          <div class="nav-wrapper">
+          <div class="nav-wrapper animate-hero-tabs">
             <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
               <li class="nav-item">
                 <a class="nav-link mb-sm-3 mb-md-0 active"
@@ -124,7 +163,7 @@
           </div>
 
           <!-- Card: Informasi Pendaftar + Tabel -->
-          <div class="card shadow">
+          <div class="card shadow animate-card">
             <div class="card-body">
               <div class="tab-content" id="myTabContent">
                 <!-- Tab Pane: Informasi Pendaftar -->
@@ -157,11 +196,11 @@
                       <thead>
                         <tr>
                           <th class="txt-biru" style="width: 8%;">No ID</th>
-                          <th class="txt-biru" style="width: 20%;">Nama Lengkap</th>
-                          <th class="txt-biru" style="width: 20%;">Email</th>
-                          <th class="txt-biru" style="width: 20%;">No Telepon</th>
-                          <th class="txt-biru" style="width: 20%;">Asal Sekolah</th>
-                          <th class="txt-biru" style="width: 32%;">Bukti Follow</th>
+                          <th class="txt-biru" style="width: 18%;">Nama Lengkap</th>
+                          <th class="txt-biru" style="width: 18%;">Email</th>
+                          <th class="txt-biru" style="width: 18%;">No Telepon</th>
+                          <th class="txt-biru" style="width: 18%;">Asal Sekolah</th>
+                          <th class="txt-biru" style="width: 20%;">Bukti Follow</th>
                         </tr>
                       </thead>
                       <tbody>

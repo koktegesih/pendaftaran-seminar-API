@@ -6,10 +6,8 @@
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="./assets/img/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        COCONUT OPEN CLASS
-    </title>
-    <!--     Fonts and icons     -->
+    <title>COCONUT OPEN CLASS</title>
+    <!-- Fonts and icons -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <!-- Nucleo Icons -->
@@ -20,20 +18,53 @@
     <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
     <!-- CSS Files -->
     <link href="./assets/css/argon-design-system.css?v=1.2.2" rel="stylesheet" />
+    <!-- Internal CSS for Animations -->
+    <style>
+        @keyframes heroFadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-hero-title {
+            animation: heroFadeSlide 1s ease-out;
+        }
+        .animate-hero-button {
+            animation: heroFadeSlide 1s ease-out 0.2s backwards;
+        }
+        .animate-hero-tabs {
+            animation: heroFadeSlide 1s ease-out 0.4s backwards;
+        }
+        .animate-hero-content {
+            animation: heroFadeSlide 1s ease-out 0.6s backwards;
+        }
+        @keyframes cardFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .animate-form-card {
+            animation: cardFadeIn 0.6s ease-out 0.8s backwards;
+        }
+    </style>
 </head>
 
 <body class="index-page">
     <!-- Navbar -->
-    <nav id="navbar-main"
-        class="navbar navbar-main navbar-expand-lg bg-white navbar-light position-sticky top-0 shadow py-2">
+    <nav id="navbar-main" class="navbar navbar-main navbar-expand-lg bg-white navbar-light position-sticky top-0 shadow py-2">
         <div class="container">
             <a class="navbar-brand mr-lg-5" href="./index.html">
                 <img src="./assets/img/logococonut.png">
             </a>
-            <!-- <button type="button" class="btn btn-sm btn-primary ml-3" data-toggle="tooltip" data-placement="top"
-        title="Tooltip on top" data-container="body" data-animation="true"><a href=""
-          class="text-secondary">Dokumentasi</a></button> -->
-
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar_global"
                 aria-controls="navbar_global" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,7 +79,6 @@
                         </div>
                     </div>
                 </div>
-
                 <ul class="navbar-nav align-items-lg-center ml-lg-auto">
                     <li class="nav-item">
                         <a class="nav-link nav-link-icon" href="https://www.facebook.com/coconutcomputer"
@@ -71,47 +101,26 @@
                             <span class="nav-link-inner--text d-lg-none">youtube</span>
                         </a>
                     </li>
-                    <!-- <li class="nav-item">
-            <a class="nav-link nav-link-icon" href="https://github.com/creativetimofficial/argon-design-system" data-toggle="tooltip" title="Star us on Github">
-              <i class="fa fa-github"></i>
-              <span class="nav-link-inner--text d-lg-none">Github</span>
-            </a>
-          </li> -->
-                    <!-- <li class="nav-item">
-            <a class="btn btn-outline-primary" href="https://www.creative-tim.com/builder/argon">
-              <span class="nav-link-inner--text">Online Builder</span>
-            </a>
-          </li>
-          <li class="nav-item d-none d-lg-block">
-            <a href="https://www.creative-tim.com/product/argon-design-system-pro?ref=ads-upgrade-pro" class="btn btn-primary btn-icon">
-              <span class="btn-inner--icon">
-                <i class="fa fa-shopping-cart"></i>
-              </span>
-              <span class="nav-link-inner--text">Upgrade to PRO</span>
-            </a>
-          </li> -->
                 </ul>
             </div>
         </div>
     </nav>
-    <!-- end nav -->
+    <!-- End Navbar -->
     <section class="section section-lg section-shaped">
-        <div class="shape shape-style-1 shape-default">
-        </div>
+        <div class="shape shape-style-1 shape-default"></div>
         <div class="container py-md">
             <div class="row row-grid justify-content-between align-items-center">
                 <div class="col-lg-6">
                     <!-- Tabs with icons -->
                     <div class="mb-3">
-                        <button type="button" class="btn btn-sm btn-success btn-tooltip" data-toggle="tooltip"
+                        <button type="button" class="btn btn-sm btn-success btn-tooltip animate-hero-button" data-toggle="tooltip"
                             data-placement="top" title="" data-container="body" data-animation="true"
                             data-original-title="Pendaftaran Berakhir pada Sabtu, 3 February 2024">COCONUT OPEN CLASS
                             BATCH 7</button>
-                        <h3 class=" text-white"><span class="text-white display-4">From Nothing to Coder: Bangun Website Portfolio Professional Dengan Next.js</span></h3>
+                        <h3 class=" text-white"><span class="text-white display-4">From Nothing to Coder : Practical HTML & CSS</span></h3>
                         <!-- <small class="text-uppercase font-weight-bold">Informasi!</small> -->
                     </div>
-
-                    <div class="nav-wrapper">
+                    <div class="nav-wrapper animate-hero-tabs">
                         <ul class="nav nav-pills nav-fill flex-column flex-md-row" id="tabs-icons-text" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link mb-sm-3 mb-md-0 active" id="tabs-icons-text-1-tab" data-toggle="tab"
@@ -130,33 +139,26 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="card shadow">
+                    <div class="card shadow animate-hero-content">
                         <div class="card-body">
                             <div class="tab-content" id="myTabContent">
                                 <div class="tab-pane fade show active" id="tabs-icons-text-1" role="tabpanel"
                                     aria-labelledby="tabs-icons-text-1-tab">
                                     <p class="description"><b>Tipe :</b> Open Class<br>
-                                        <b>Pemateri 1 :</b> Mustika  <br>
-                                        <b>Pemateri 2 :</b> Windu Yoga Nugraha  <br>
+                                        <b>Pemateri 1 :</b> Mustika<br>
+                                        <b>Pemateri 2 :</b> Windu Yoga Nugraha<br>
                                         <b>Moderator :</b> Andika Rizky Ramadhan<br>
-                                        <b>Materi :</b> Frontend <br>
+                                        <b>Materi :</b> Frontend<br>
                                         <b>Tempat :</b> IndigoHub Makassar<br>
                                     </p>
-
                                     <p class="description"><b>Tujuan:</b>
                                         <ol>
                                             <li>Memberikan pemahaman dasar kepada peserta mengenai struktur dan sintaks HTML serta prinsip dasar desain menggunakan CSS.</li>
                                             <li>Membekali peserta dengan keterampilan yang praktis dalam membangun halaman web statis secara langsung melalui sesi praktik (live demo).</li>
                                             <li>Mengenalkan penggunaan Git sebagai alat manajemen versi (version control system) dalam proses pengembangan web.</li>
                                             <li>Mengajarkan cara melakukan deployment website menggunakan platform Vercel agar peserta dapat mempublikasikan hasil proyek mereka secara online.</li>
-
-
-
                                         </ol>
-
                                     </p>
-
-
                                     <button type="button" class="btn btn-outline-default"><i
                                             class="ni ni-calendar-grid-58 mr-2"></i> <b>Jum'at,
                                             13 Juni 2025</b> 13:30 WITA - Selesai</button>
@@ -182,33 +184,22 @@
                                 </div>
                                 <div class="tab-pane fade" id="tabs-icons-text-3" role="tabpanel"
                                     aria-labelledby="tabs-icons-text-3-tab">
-
                                     <p class="description">
                                         <b>Pendaftaran Gratis</b><br>
-                                        1. E-Sertifikat  <br>
-                                        2. Relasi <br>
+                                        1. E-Sertifikat<br>
+                                        2. Relasi<br>
                                         3. Ilmu Bermanfaat
                                     </p>
-
-                                    <!-- <p class="description">
-                                        <b>Pendaftaran Berbayar</b>
-                                        2. Modul Pembelajaran <br>
-                                        3. Ilmu Bermanfaat <br>
-                                        4. Relasi <br>
-                                    </p> -->
                                 </div>
                             </div>
                         </div>
                     </div>
-
                 </div>
                 <div class="col-lg-5 mb-lg-auto">
                     <div class="transform-perspective-right">
-                        <div class="card bg-secondary shadow border-0">
-
+                        <div class="card bg-secondary shadow border-0 animate-form-card">
                             <div class="card-body px-lg-5 py-lg-5">
                                 <div class="text-center text-muted mb-4">
-                                    <!-- <small>Formulir Pendaftaran</small> -->
                                     <small>
                                         <button type="button" class="btn btn-sm btn-primary btn-tooltip"
                                             data-toggle="tooltip" data-placement="top" title="" data-container="body"
@@ -217,7 +208,7 @@
                                             Pendaftaran</button>
                                     </small>
                                 </div>
-                                <form role="form" method="post" enctype="application/json" id="register-form">
+                                <form role="form" method="post" enctype="multipart/form-data" id="register-form">
                                     <!-- Input Nama Lengkap -->
                                     <div class="form-group mb-3">
                                         <div class="input-group input-group-alternative">
@@ -228,7 +219,6 @@
                                                 name="nama_lengkap" class="form-control form-control-alternative">
                                         </div>
                                     </div>
-
                                     <!-- Input Email -->
                                     <div class="form-group mb-3">
                                         <div class="input-group input-group-alternative">
@@ -239,7 +229,6 @@
                                                 name="email">
                                         </div>
                                     </div>
-
                                     <!-- Input Telepon -->
                                     <div class="form-group mb-3">
                                         <div class="input-group input-group-alternative">
@@ -251,8 +240,7 @@
                                                 placeholder="Masukkan nomor telepon">
                                         </div>
                                     </div>
-
-                                     <!-- Input Sekolah -->
+                                    <!-- Input Sekolah -->
                                     <div class="form-group mb-3">
                                         <div class="input-group input-group-alternative">
                                             <div class="input-group-prepend">
@@ -263,61 +251,23 @@
                                                 placeholder="Masukkan asal sekolah">
                                         </div>
                                     </div>
-
-                                   
-
-                                    <!-- Radio Button Apakah Pernah Menggunakan JS Framework -->
-                                    <!-- <div class="form-group mb-3">
-                                        <label class="text-muted font-weight">Apakah pernah menggunakan framework
-                                            JavaScript sebelumnya?</label>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="pengalaman_js"
-                                                id="jsFrameworkYa" value="ya" onchange="tampilkanFramework()">
-                                            <label class="form-check-label" for="jsFrameworkYa">Ya</label>
-                                        </div>
-                                        <div class="form-check form-check-inline">
-                                            <input class="form-check-input" type="radio" name="pengalaman_js"
-                                                id="jsFrameworkTidak" value="tidak" onchange="sembunyikanFramework()">
-                                            <label class="form-check-label" for="jsFrameworkTidak">Tidak</label>
-                                        </div>
-                                    </div> -->
-
-                                    <!-- Pilihan Framework (Tersembunyi Awalnya) -->
-                                    <div class="form-group mb-3" id="frameworkForm" style="display:none;">
-                                        <label class="text-muted font-weight">Framework apa yang pernah
-                                            digunakan?</label>
-                                        <select class="form-control" id="framework" name="framework">
-                                            <option value="">Pilih framework</option>
-                                            <option value="React">React</option>
-                                            <option value="Vue">Vue</option>
-                                            <option value="Angular">Angular</option>
-                                            <option value="Svelte">Svelte</option>
-                                            <option value="Next.js">Next.js</option>
-                                            <option value="Nuxt.js">Nuxt.js</option>
-                                        </select>
-                                    </div>
-
                                     <!-- Info Instagram -->
-                                    <br>
                                     <small class="text-uppercase text-muted font-weight">
                                         Pendaftaran kegiatan ini benar-benar gratis! Namun, kalian tetap akan mendapatkan E-sertifikat, relasi pertemanan yang luas, pengalaman berharga, dan tentunya ilmu yang bermanfaat dari pemateri kami.
                                         Cukup follow Instagram @coconutdotorg dan lampirkan bukti screenshot-nya saat mendaftar untuk bergabung!
-
                                         <br><br>
-                                        Mudah, bukan? Ayo gabung dan nikmati semua manfaatnya bersama kami!
+                                        Mudah, bukan? Ayo gabung dan nikmati semua manfaatnya bersama kami!
                                     </small>
-
                                     <!-- Upload Bukti Follow -->
                                     <div class="form-group mb-3">
                                         <div class="input-group input-group-alternative">
                                             <div class="custom-file">
                                                 <input type="file" class="custom-file-input" id="buktifollow" name="file"
                                                     accept=".jpeg, .jpg, .png">
-                                                <label class="custom-file-label" for="gambarInput">Upload bukti follow instagram</label>
+                                                <label class="custom-file-label" for="buktifollow">Upload bukti follow instagram</label>
                                             </div>
                                         </div>
                                     </div>
-
                                     <!-- Button Kirim -->
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary my-4">Kirim</button>
@@ -337,15 +287,13 @@
             </svg>
         </div>
     </section>
-
     <footer class="footer has-cards">
         <div class="container">
             <div class="row row-grid align-items-center my-md">
                 <div class="col-lg-6">
                     <h3 class="text-primary font-weight-light mb-2">COCONUT OPEN CLASS</h3>
                     <h5 class="mb-0 font-weight-light"><b><i>"Mencerdaskan Kehidupan Bangsa"</i></b><br>Membuka
-                        Pengetahuan,
-                        Menghubungkan Pikiran.</h5>
+                        Pengetahuan, Menghubungkan Pikiran.</h5>
                 </div>
                 <div class="col-lg-6 text-lg-center btn-wrapper">
                     <button rel="nofollow" class="btn btn-icon-only btn-youtube rounded-circle" data-toggle="tooltip"
@@ -372,7 +320,7 @@
             <div class="row align-items-center justify-content-md-between">
                 <div class="col-md-6">
                     <div class="copyright">
-                        &copy; 2024 <a href="https://coconut.or.id">COCONUT Computer Club</a>.
+                        © 2024 <a href="https://coconut.or.id">COCONUT Computer Club</a>.
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -388,25 +336,18 @@
             </div>
         </div>
     </footer>
+    <!-- Core JS Files -->
+    <script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
+    <script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
+    <script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
+    <script src="./assets/js/plugins/bootstrap-switch.js"></script>
+    <script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
+    <script src="./assets/js/plugins/moment.min.js"></script>
+    <script src="./assets/js/plugins/datetimepicker.js" type="text/javascript"></script>
+    <script src="./assets/js/plugins/bootstrap-datepicker.min.js"></script>
+    <script src="./assets/js/argon-design-system.min.js?v=1.2.2" type="text/javascript"></script>
+    <script src="./assets/js/formulir.js"></script>
+    <script src="./assets/js/script.js"></script>
 </body>
-<!--   Core JS Files   -->
-<script src="./assets/js/core/jquery.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/popper.min.js" type="text/javascript"></script>
-<script src="./assets/js/core/bootstrap.min.js" type="text/javascript"></script>
-<script src="./assets/js/plugins/perfect-scrollbar.jquery.min.js"></script>
-<!--  Plugin for Switches, full documentation here: http://www.jque.re/plugins/version3/bootstrap.switch/ -->
-<script src="./assets/js/plugins/bootstrap-switch.js"></script>
-<!--  Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
-<script src="./assets/js/plugins/nouislider.min.js" type="text/javascript"></script>
-<script src="./assets/js/plugins/moment.min.js"></script>
-<script src="./assets/js/plugins/datetimepicker.js" type="text/javascript"></script>
-<script src="./assets/js/plugins/bootstrap-datepicker.min.js"></script>
-<!-- Control Center for Argon UI Kit: parallax effects, scripts for the example pages etc -->
-<!--  Google Maps Plugin    -->
-<!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script> -->
-<script src="./assets/js/argon-design-system.min.js?v=1.2.2" type="text/javascript"></script>
-<script src="assets/js/formulir.js"></script>
-<script src="assets/js/script.js"></script>
-<!-- <script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script> -->
-
 </html>

@@ -5,8 +5,8 @@ document.querySelector('#buktifollow').addEventListener('change', function (e) {
 });
 
 document.addEventListener('DOMContentLoaded', function () {
-	const form = document.querySelector('form')
-	const enpoint = `https://pendaftaran-coc-api.up.railway.app/api/pendaftar/add`;
+	const form = document.querySelector('form');
+	const endpoint = `https://pendaftaran-coc-api.up.railway.app/api/pendaftar/add`;
 
 	form.addEventListener('submit', function (event) {
 		event.preventDefault();
@@ -15,28 +15,21 @@ document.addEventListener('DOMContentLoaded', function () {
 		const email = document.getElementById('email').value;
 		const noTelp = document.getElementById('no-telp').value;
 		const buktifollow = document.getElementById('buktifollow').files[0];
-		// const framework = document.getElementById('framework').value;
+		const asalSekolah = document.getElementById('asal-sklh').value;
 
-		// let framework = '';
-		// if (document.getElementById('jsFrameworkYa').checked) {
-		// 	framework = document.getElementById("framework").value;
-		// } else {
-		// 	framework = 'belum pernah menggunakan framework js';
-		// }
-		
 		const formData = new FormData();
 		formData.append('nama-lengkap', namaLengkap);
 		formData.append('email', email);
 		formData.append('no-telp', noTelp);
 		formData.append('bukti-follow', buktifollow);
-		// formData.append('framework', framework);
+		formData.append('asal-sekolah', asalSekolah);
 
 		const requestOptions = {
 			method: 'POST',
 			body: formData
 		};
 
-		fetch(enpoint, requestOptions)
+		fetch(endpoint, requestOptions)
 			.then(response => {
 				return response.json();
 			})
@@ -50,11 +43,3 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 	});
 });
-
-// function tampilkanFramework() {
-// 	document.getElementById('frameworkForm').style.display = 'block';
-// }
-
-// function sembunyikanFramework() {
-// 	document.getElementById('frameworkForm').style.display = 'none';
-// }
