@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		const email = document.getElementById('email').value;
 		const noTelp = document.getElementById('no-telp').value;
 		const buktifollow = document.getElementById('buktifollow').files[0];
+		const sekolah = document.getElementById('asal-sklh').files[0];
 		// const framework = document.getElementById('framework').value;
 
 		// let framework = '';
@@ -29,6 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 		formData.append('email', email);
 		formData.append('no-telp', noTelp);
 		formData.append('bukti-follow', buktifollow);
+		formData.append('sekolah', sekolah);
 		// formData.append('framework', framework);
 
 		const requestOptions = {
