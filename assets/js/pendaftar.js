@@ -42,6 +42,7 @@ function renderTableData(data) {
       <td>${pendaftar.email}</td>
       <td>${pendaftar["no-telp"]}</td>
       <td>${pendaftar["asal-sekolah"] || '-'}</td>
+      <td>${pendaftar["punya-laptop"] || '-'}</td>
       <td>
         <i class="fas fa-image text-primary" 
            style="cursor: pointer;" 
@@ -74,6 +75,7 @@ function exportToExcel() {
     'Email': pendaftar.email,
     'No Telepon': pendaftar['no-telp'],
     'Asal Sekolah': pendaftar['asal-sekolah'] || '-',
+    'Punya Laptop': pendaftar['punya-laptop'] || '-'
   }));
 
   const worksheet = XLSX.utils.json_to_sheet(excelData);
@@ -85,6 +87,7 @@ function exportToExcel() {
     { wch: 30 },
     { wch: 20 },
     { wch: 30 },
+    { wch: 15 },
     { wch: 50 }
   ];
   XLSX.writeFile(workbook, 'Pendaftar_Coconut_Open_Class.xlsx');
