@@ -1,52 +1,56 @@
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
   fetchDataPendaftar();
 });
 
 let registrantData = []; // Store data globally for export
 
 async function fetchDataPendaftar() {
-  const token = localStorage.getItem('authToken');
+  const token = localStorage.getItem("authToken");
   if (!token) {
-    window.location.href = 'login.html';
+    window.location.href = "login.html";
     return;
   }
 
-  const url = 'https://pendaftaran-coc-api.up.railway.app/api/pendaftar/get';
+  const url = "https://pendaftaran-coc-api.up.railway.app/api/pendaftar/get";
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error('Gagal mengambil data pendaftar');
+      throw new Error("Gagal mengambil data pendaftar");
     }
     const result = await response.json();
     registrantData = result.data; // Store data for export
     renderTableData(result.data);
   } catch (error) {
-    console.error('Error:', error);
+    console.error("Error:", error);
   }
 }
 
 function renderTableData(data) {
-  const tableBody = document.getElementById('tbl').getElementsByTagName('tbody')[0];
-  const jumlahElement = document.getElementById('jumlah');
+  const tableBody = document
+    .getElementById("tbl")
+    .getElementsByTagName("tbody")[0];
+  const jumlahElement = document.getElementById("jumlah");
   jumlahElement.textContent = data.length;
 
   // Clear existing rows
-  tableBody.innerHTML = '';
+  tableBody.innerHTML = "";
 
   data.forEach((pendaftar, index) => {
-    const row = document.createElement('tr');
+    const row = document.createElement("tr");
 
     row.innerHTML = `
       <td>${index + 1}</td>
       <td>${pendaftar["nama-lengkap"]}</td>
       <td>${pendaftar.email}</td>
       <td>${pendaftar["no-telp"]}</td>
-      <td>${pendaftar["asal-sekolah"] || '-'}</td>
-      <td>${pendaftar["punya-laptop"] || '-'}</td>
+      <td>${pendaftar["asal-sekolah"] || "-"}</td>
+      <td>${pendaftar["punya-laptop"] || "-"}</td>
       <td>
         <i class="fas fa-image text-primary" 
            style="cursor: pointer;" 
-           data-image-url="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${pendaftar["bukti-follow"]}"
+           data-image-url="https://pendaftaran-coc-api.up.railway.app/api/pendaftar/uploads/${
+             pendaftar["bukti-follow"]
+           }"
            onclick="showImageModal(this.getAttribute('data-image-url'))"
            title="Lihat Bukti Follow">
         </i>
@@ -58,49 +62,49 @@ function renderTableData(data) {
 }
 
 function showImageModal(src) {
-  const modalImage = document.getElementById('modalImage');
+  const modalImage = document.getElementById("modalImage");
   modalImage.src = src;
-  $('#imageModal').modal('show');
+  $("#imageModal").modal("show");
 }
 
 function exportToExcel() {
   if (!registrantData.length) {
-    alert('Tidak ada data untuk diekspor!');
+    alert("Tidak ada data untuk diekspor!");
     return;
   }
 
   const excelData = registrantData.map((pendaftar, index) => ({
-    'No ID': index + 1,
-    'Nama Lengkap': pendaftar['nama-lengkap'],
-    'Email': pendaftar.email,
-    'No Telepon': pendaftar['no-telp'],
-    'Asal Sekolah': pendaftar['asal-sekolah'] || '-',
-    'Punya Laptop': pendaftar['punya-laptop'] || '-'
+    "No ID": index + 1,
+    "Nama Lengkap": pendaftar["nama-lengkap"],
+    Email: pendaftar.email,
+    "No Telepon": pendaftar["no-telp"],
+    "Asal Sekolah": pendaftar["asal-sekolah"] || "-",
+    "Punya Laptop": pendaftar["punya-laptop"] || "-",
   }));
 
   const worksheet = XLSX.utils.json_to_sheet(excelData);
   const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, 'Pendaftar');
-  worksheet['!cols'] = [
+  XLSX.utils.book_append_sheet(workbook, worksheet, "Pendaftar");
+  worksheet["!cols"] = [
     { wch: 10 },
     { wch: 30 },
     { wch: 30 },
     { wch: 20 },
     { wch: 30 },
     { wch: 15 },
-    { wch: 50 }
+    { wch: 50 },
   ];
-  XLSX.writeFile(workbook, 'Pendaftar_Coconut_Open_Class.xlsx');
+  XLSX.writeFile(workbook, "Pendaftar_Coconut_Open_Class.xlsx");
 }
 
 async function downloadImagesAsZip() {
   if (!registrantData.length) {
-    alert('Tidak ada gambar untuk diunduh!');
+    alert("Tidak ada gambar untuk diunduh!");
     return;
   }
 
   const zip = new JSZip();
-  const folder = zip.folder('bukti_follow');
+  const folder = zip.folder("bukti_follow");
 
   try {
     for (let i = 0; i < registrantData.length; i++) {
@@ -121,10 +125,10 @@ async function downloadImagesAsZip() {
       }
     }
 
-    const content = await zip.generateAsync({ type: 'blob' });
-    saveAs(content, 'Bukti_Follow_Coconut_Open_Class.zip');
+    const content = await zip.generateAsync({ type: "blob" });
+    saveAs(content, "Bukti_Follow_Coconut_Open_Class.zip");
   } catch (error) {
-    console.error('Error membuat file ZIP:', error);
-    alert('Gagal membuat file ZIP. Silakan coba lagi.');
+    console.error("Error membuat file ZIP:", error);
+    alert("Gagal membuat file ZIP. Silakan coba lagi.");
   }
 }

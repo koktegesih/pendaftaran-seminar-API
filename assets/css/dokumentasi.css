@@ -1,57 +1,76 @@
+/* dokumentasi.css */
 
-.gallery-title
-{
-    font-size: 26px;
-    color: #0c295c;
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 40px;
+.btn-icon-only {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: 50%; /* biar lebih rapi kalau icon button */
+  transition: all 0.3s ease;
 }
+
+.gallery-title {
+  font-size: 26px;
+  color: #0c295c;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 40px;
+  position: relative;
+}
+
 .gallery-title:after {
-    content: "";
-    position: absolute;
-    width: 7.5%;
-    left: 46.5%;
-    height: 45px;
-    border-bottom: 1px solid #5e5e5e;
-}
-.filter-button
-{
-    font-size: 14px;
-    border: 1px solid #42B32F;
-    border-radius: 5px;
-    text-align: center;
-    color: #42B32F;
-    margin-bottom: 10px;
-
-}
-.filter-button:hover
-{
-    font-size: 18px;
-    border: 1px solid #42B32F;
-    border-radius: 5px;
-    text-align: center;
-    color: #ffffff;
-    background-color: #42B32F;
-
-}
-.btn-default:active .filter-button:active
-{
-    background-color: #42B32F;
-    color: white;
+  content: "";
+  position: absolute;
+  width: 60px;
+  height: 2px;
+  background: #5e5e5e;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -10px;
 }
 
-.port-image
-{
-    width: 100%;
+.filter-button {
+  font-size: 14px;
+  border: 1px solid #0c295c; /* ganti biru tua */
+  border-radius: 5px;
+  text-align: center;
+  color: #0c295c;
+  padding: 6px 14px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-button:hover {
+  font-size: 14px;
+  border: 1px solid #0c295c;
+  color: #fff;
+  background-color: #0c295c;
+}
+
+.filter-button:active,
+.btn-default:active .filter-button:active {
+  background-color: #0c295c;
+  color: #fff;
+}
+
+.port-image {
+  width: 100%;
+  border-radius: 8px; /* biar gambar nggak kaku */
+  transition: transform 0.3s ease;
+}
+
+.port-image:hover {
+  transform: scale(1.03); /* efek zoom saat hover */
 }
 
 .img-responsive {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: auto;
 }
 
-.gallery_product
-{
-    margin-bottom: 30px;
+.gallery_product {
+  margin-bottom: 30px;
 }
