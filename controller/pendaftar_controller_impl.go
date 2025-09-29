@@ -142,6 +142,6 @@ func (p *PendaftarControllerImpl) LoginAdmin(w http.ResponseWriter, r *http.Requ
 		Message: "token generate successfully",
 	}
 
-	w.Header().Set("Content-.Type", "application/json")
+	w.Header().Set("Content-Type", "application/json")
 	util.WriteToResponseBody(w, response)
 }
